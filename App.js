@@ -1,21 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import HandlePlayer from './components/Players';
+import styles from "./styles/styles";
+import AddPlayer from './components/Players';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <HandlePlayer></HandlePlayer>
+      <Text style={styles.title}>Intoxi-deck</Text>
+        <AddPlayer></AddPlayer>
       <StatusBar hidden/>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
