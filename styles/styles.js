@@ -41,6 +41,16 @@ export default StyleSheet.create({
     enterPlayer: {
         textAlign: "center",
         fontSize: 20
-    }
+    },
+
+    gameScreen: {
+        color: "black"
+    },
+
+    gameImage: {
+        width: "100%",
+        height: "100%",
+        aspectRatio: 1,
+    },
 
 });

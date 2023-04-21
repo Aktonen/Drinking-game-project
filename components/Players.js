@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import {Text, View, TextInput, Pressable } from "react-native";
 import styles from "../styles/styles";
 
+import Game from "./Game"
+
 
 
 export default function AddPlayer(){
@@ -17,7 +19,7 @@ export default function AddPlayer(){
         return (
             <View>
                 <Pressable onPress={() => navigation.navigate("Game")}>
-                    <Text>Continue</Text>
+                    <Game></Game>
                 </Pressable>
             </View>
         )
@@ -38,12 +40,12 @@ export default function AddPlayer(){
                     )}
                     </Pressable>
 
-                    <Pressable style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : 'blue' }, styles.startButton ]}
+                    {/* <Pressable style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : 'blue' }, styles.startButton ]}
                         onPress={() => setLoggedIn(true)}>
                     {({ pressed }) => (
                         <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Start game</Text>
                         )}
-                    </Pressable>
+                    </Pressable> */}
             </View>
         )
     }
