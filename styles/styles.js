@@ -44,13 +44,31 @@ export default StyleSheet.create({
     },
 
     gameScreen: {
-        color: "black"
+        flex: 1,
+        flexDirection: "row",
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: "100%"
     },
 
     gameImage: {
-        width: "100%",
-        height: "100%",
+        width: "50%",
+        height: "50%",
         aspectRatio: 1,
+        resizeMode: "stretch",
+    },
+
+    gameArrowRight: {
+        position: "absolute", right: 20,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+
+    gameArrowLeft: {
+        position: "absolute", left: 20,
+        justifyContent: "center",
+        alignItems: "center"
     },
 
 });
