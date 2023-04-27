@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text, View, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const PlayersList = () => {
@@ -19,9 +19,25 @@ const PlayersList = () => {
     loadPlayers();
   }, []);
 
-  const renderPlayer = ({ item }) => (
-    <Text style={{ marginRight: 10 }}>{item}</Text>
-  );
+  const renderPlayer = ({ item }) => {
+    const handleDeletePlayer = async () => {
+      const newPlayers = players.filter((player) => player !== item);
+      try {
+        await AsyncStorage.setItem('players', JSON.stringify(newPlayers));
+        setPlayers(newPlayers);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    return (
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <Text style={{ marginRight: 10 }}>{item}</Text>
+        <TouchableOpacity onPress={handleDeletePlayer}>
+          <Text style={{ color: 'red' }}>Delete</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
 
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -36,4 +52,3 @@ const PlayersList = () => {
 };
 
 export default PlayersList;
-
