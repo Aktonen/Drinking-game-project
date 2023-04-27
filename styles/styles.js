@@ -70,5 +70,42 @@ export default StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#F5FCFF',
+      },
 
-});
+      title: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 20,
+      },
+
+      startButton: {
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+        marginBottom: 20,
+      },
+
+      footer: {
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        backgroundColor: '#ddd',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        alignItems: 'center',
+      },
+      footerText: {
+        fontSize: 14,
+        color: '#555',
+        textAlign: 'center',
+      },
+      playerName: {
+        fontSize: 16,
+        marginVertical: 5,
+      },
+    });

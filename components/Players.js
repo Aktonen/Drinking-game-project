@@ -1,53 +1,39 @@
-import React, { useState } from "react";
-import {Text, View, TextInput, Pressable } from "react-native";
-import styles from "../styles/styles";
+import React, { useState } from 'react';
+import { TextInput, Pressable, Text } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import styles from '../styles/styles';
 
-import Game from "./Game"
+const AddPlayer = () => {
+  const [playerName, setPlayerName] = useState('');
 
-
-
-export default function AddPlayer(){
-
-    const [playerName, setplayerName] = useState("")
-    const [loggedIn, setLoggedIn] = useState(false)
-
-    function handlePlayerName(){
-        
+  const addPlayer = async () => {
+    try {
+      const players = JSON.parse(await AsyncStorage.getItem('players')) || [];
+      players.push(playerName);
+      await AsyncStorage.setItem('players', JSON.stringify(players));
+      setPlayerName('');
+      console.log(players)
+    } catch (error) {
+      console.error(error);
     }
+  };
 
-    if (loggedIn){
-        return (
-            <View>
-                <Pressable onPress={() => navigation.navigate("Game")}>
-                    <Game></Game>
-                </Pressable>
-            </View>
-        )
-    }
-    else {
-        return (
-            <View>
-                <Text style={styles.enterPlayer}>Enter players:</Text>
-                    <TextInput
-                        style={styles.playerInput}
-                        value={playerName}
-                        onChangeText={(t) => setplayerName(t)}
-                    />
-                    <Pressable style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : 'blue' }, styles.startButton ]}
-                        onPress={handlePlayerName()}>
-                    {({ pressed }) => (
-                        <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Add player</Text>
-                    )}
-                    </Pressable>
+  return (
+    <>
+      <TextInput
+        value={playerName}
+        onChangeText={setPlayerName}
+        placeholder="Enter player name"
+        textAlign='center'
+      />
+      <Pressable style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : 'blue' }, styles.startButton ]}
+        onPress={addPlayer}>
+        {({ pressed }) => (
+        <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Add player</Text>
+          )}
+      </Pressable>
+    </>
+  );
+};
 
-                    {/* <Pressable style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : 'blue' }, styles.startButton ]}
-                        onPress={() => setLoggedIn(true)}>
-                    {({ pressed }) => (
-                        <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Start game</Text>
-                        )}
-                    </Pressable> */}
-            </View>
-        )
-    }
-
-}
+export default AddPlayer;

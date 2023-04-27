@@ -6,24 +6,43 @@ import HandlePlayer from './components/Players';
 import styles from "./styles/styles";
 import AddPlayer from './components/Players';
 import Game from "./components/Game"
+import PlayersList from './components/PlayersList';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
 function Home({ navigation }) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.container}>
       <Text style={styles.title}>Intoxi-deck</Text>
-      <AddPlayer></AddPlayer>
-      <Pressable style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : 'blue' }, styles.startButton ]}
-        onPress={() => navigation.navigate('Game')}>
+      <View style={styles.handlePlayerContainer}>
+        <HandlePlayer />
+      </View>
+      <Pressable
+        style={({ pressed }) => [
+          { backgroundColor: pressed ? 'green' : 'blue' },
+          styles.startButton,
+        ]}
+        onPress={() => navigation.navigate('Game')}
+      >
         {({ pressed }) => (
-        <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Start game</Text>
-          )}
+          <Text
+            style={[
+              { color: pressed ? 'white' : 'black' },
+              styles.buttonText,
+            ]}
+          >
+            Start game
+          </Text>
+        )}
       </Pressable>
+      <View style={styles.footer}>
+        <PlayersList />
+      </View>
     </View>
   );
 }
+
 
 function MenuGame({ navigation }) {
   return (
@@ -32,23 +51,6 @@ function MenuGame({ navigation }) {
     </View>
   );
 }
-
-// const forFade = ({ current, next }) => {
-//   const opacity = Animated.add(
-//     current.progress,
-//     next ? next.progress : 0
-//   ).interpolate({
-//     inputRange: [0, 1, 2],
-//     outputRange: [0, 1, 0],
-//   });
-
-//   return {
-//     leftButtonStyle: { opacity },
-//     rightButtonStyle: { opacity },
-//     titleStyle: { opacity },
-//     backgroundStyle: { opacity },
-//   };
-// };
 
 const Stack = createStackNavigator();
 
@@ -66,7 +68,6 @@ function MyStack() {
       <Stack.Screen
         name="Game"
         component={MenuGame}
-        // options={{ headerStyleInterpolator: forFade }}
       />
     </Stack.Navigator>
   );
