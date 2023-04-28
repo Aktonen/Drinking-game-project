@@ -7,6 +7,7 @@ import styles from "./styles/styles";
 import AddPlayer from './components/Players';
 import Game from "./components/Game"
 import PlayersList from './components/PlayersList';
+import PlayersListGame from './components/PlayersListGame'
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -46,8 +47,9 @@ function Home({ navigation }) {
 
 function MenuGame({ navigation }) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
       <Game></Game>
+      {/* <PlayersListGame></PlayersListGame> */}
     </View>
   );
 }
