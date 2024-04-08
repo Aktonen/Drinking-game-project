@@ -16,6 +16,20 @@ import { NavigationContainer } from '@react-navigation/native';
 function Home({ navigation }) {
   const [players, setPlayers] = useState([]);
 
+  useEffect(() => {
+    const loadPlayers = async () => {
+      try {
+        const storedPlayers = await AsyncStorage.getItem('players');
+        if (storedPlayers) {
+          setPlayers(JSON.parse(storedPlayers));
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    loadPlayers();
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Intoxi-deck</Text>
