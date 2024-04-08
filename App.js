@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Pressable, Text, View, Button, ScrollView } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 import styles from "./styles/styles";
 import AddPlayer from './components/Players';
