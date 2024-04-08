@@ -1,8 +1,9 @@
+import { useState, useEffect } from 'react';
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Pressable, Text, View, Button, ScrollView } from 'react-native';
 
-import HandlePlayer from './components/Players';
 import styles from "./styles/styles";
 import AddPlayer from './components/Players';
 import Game from "./components/Game"
@@ -13,11 +14,15 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
 function Home({ navigation }) {
+  const [players, setPlayers] = useState([]);
+
+  console.log(players);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Intoxi-deck</Text>
       <View style={styles.handlePlayerContainer}>
-        <HandlePlayer />
+        <AddPlayer players={players} setPlayers={setPlayers}/>
       </View>
       <Pressable
         style={({ pressed }) => [
@@ -38,7 +43,7 @@ function Home({ navigation }) {
         )}
       </Pressable>
       <View style={styles.footer}>
-        <PlayersList />
+        <PlayersList players={players}/>
       </View>
     </View>
   );
