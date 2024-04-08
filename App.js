@@ -55,7 +55,7 @@ function Home({ navigation }) {
         )}
       </Pressable>
       <View style={styles.footer}>
-        <PlayersList players={players}/>
+        <PlayersList players={players} setPlayers={setPlayers}/>
       </View>
     </View>
   );
