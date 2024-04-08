@@ -63,9 +63,6 @@ const PlayersList = ({ players }) => {
     </View>
   )
 
-  console.log(typeof players);
-
-
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
       <FlatList

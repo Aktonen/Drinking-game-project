@@ -16,8 +16,6 @@ import { NavigationContainer } from '@react-navigation/native';
 function Home({ navigation }) {
   const [players, setPlayers] = useState([]);
 
-  console.log(players);
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Intoxi-deck</Text>
