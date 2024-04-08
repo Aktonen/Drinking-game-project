@@ -8,14 +8,15 @@ export default function Game() {
 
   // These have to be changed if the app is published
   const IMAGES = [
-    "http://192.168.0.104:19000/images/Category_dogs.jpg",
-    "http://192.168.0.104:19000/images/Lie_on_your_back.jpg",
-    "http://192.168.0.104:19000/images/Old_friends.jpg",
-    "http://192.168.0.104:19000/images/Piercing.jpg",
-    "http://192.168.0.104:19000/images/Tell_a_joke.png"
+    "http://192.168.0.105:8081/images/Category_dogs.jpg",
+    "http://192.168.0.105:8081/images/Lie_on_your_back.jpg",
+    "http://192.168.0.105:8081/images/Old_friends.jpg",
+    "http://192.168.0.105:8081/images/Piercing.jpg",
+    "http://192.168.0.105:8081/images/Tell_a_joke.png"
   ];
 
   const [imageUri, setImageUri] = useState(null)
+  const [imageArray, setImageArray] = useState(IMAGES)
 
   useEffect(() => {
     // Fetch a random image on component mount
@@ -28,23 +29,23 @@ export default function Game() {
   }, []);
 
   function GetRandomImage() {
-    if (IMAGES.length === 0) {
+    if (imageArray.length === 0) {
       // Handle the case where the array is empty (e.g., all images displayed)
       return null; // Or reset the IMAGES array, or take another action
     }
 
     // Get a random index within the array bounds
-    const randomIndex = Math.floor(Math.random() * IMAGES.length);
+    const randomIndex = Math.floor(Math.random() * imageArray.length);
 
     // Extract the image URI at the random index 
-    const imageUri = IMAGES[randomIndex];
+    const imageUri = imageArray[randomIndex];
 
     // Remove the image from the array
-    // THIS DOES NOT WORK CURRENTLY
-    IMAGES.splice(randomIndex, 1);
+    imageArray.splice(randomIndex, 1);
 
     // Update the imageUri state
     setImageUri(imageUri)
+    setImageArray(imageArray)
 
     // Return the randomly selected image URI
     return imageUri;
