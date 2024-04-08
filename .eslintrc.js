@@ -7,12 +7,7 @@ module.exports = {
   rules: {
     "semi": ["error", "always"],
     "quotes": ["error", "single"],
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto",
-        singleQuote: true
-      }
-    ]
+    "react/prop-types": "off",
+    "prettier/prettier": "off",
   },
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { TextInput, Pressable, Text } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from '../styles/styles';
@@ -34,7 +34,7 @@ const AddPlayer = ({ players, setPlayers }) => {
         value={playerName}
         onChangeText={setPlayerName}
         placeholder="Enter player name"
-        textAlign='center'
+        textAlign="center"
       />
       <Pressable
         style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : 'blue' }, styles.startButton]}

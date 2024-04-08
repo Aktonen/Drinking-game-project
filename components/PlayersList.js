@@ -23,8 +23,8 @@ const PlayersList = ({ players, setPlayers }) => {
           <Text style={{ color: 'red' }}>Delete</Text>
         </TouchableOpacity>
       </View>
-    )
-  }
+    );
+  };
 
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
