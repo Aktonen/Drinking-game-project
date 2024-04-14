@@ -98,6 +98,11 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
 
+  playerNameWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
   playerName: {
     fontSize: 16,
     marginVertical: 5,

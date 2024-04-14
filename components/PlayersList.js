@@ -19,7 +19,7 @@ const PlayersList = ({ players, setPlayers }) => {
     };
 
     return (
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+      <View style={styles.playerNameWrapper}>
         <Text style={styles.playerName}>{item}</Text>
         <Icon.Button
           style={styles.playerNameButton}
