@@ -108,8 +108,8 @@ export default StyleSheet.create({
     marginVertical: 5,
   },
 
-  playerNameButton: {
-    fontWeight: '500', // Fix this
-  },
+  // playerNameButton: {
+  //   fontWeight: '500', // Fix this
+  // },
 
 });
