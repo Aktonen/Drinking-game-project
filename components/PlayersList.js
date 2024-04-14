@@ -1,6 +1,8 @@
 import React from 'react';
-import { FlatList, Text, View, TouchableOpacity } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 import { v4 as uuidv4 } from 'uuid';
+import styles from '../styles/styles';
 import 'react-native-get-random-values';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -18,16 +20,23 @@ const PlayersList = ({ players, setPlayers }) => {
 
     return (
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Text style={{ marginRight: 10 }}>{item}</Text>
-        <TouchableOpacity onPress={handleDeletePlayer}>
-          <Text style={{ color: 'red' }}>Delete</Text>
-        </TouchableOpacity>
+        <Text style={styles.playerName}>{item}</Text>
+        <Icon.Button
+          style={styles.playerNameButton}
+          name="delete"
+          backgroundColor="#ffbc3e"
+          onPress={handleDeletePlayer}
+          color="black"
+          fontWeight="100"
+        >
+          Delete
+        </Icon.Button>
       </View>
     );
   };
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View style={styles.flatListWrapper}>
       <FlatList
         horizontal
         data={players}
