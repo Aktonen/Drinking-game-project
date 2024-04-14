@@ -19,14 +19,14 @@ const AddPlayer = ({ players, setPlayers }) => {
     }
   };
 
-  const clearLocalStorage = async () => {
-    try {
-      await AsyncStorage.clear();
-      console.log('Local storage cleared!');
-    } catch (error) {
-      console.error('Error clearing local storage:', error);
-    }
-  };
+  // const clearLocalStorage = async () => {
+  //   try {
+  //     await AsyncStorage.clear();
+  //     console.log('Local storage cleared!');
+  //   } catch (error) {
+  //     console.error('Error clearing local storage:', error);
+  //   }
+  // };
 
   return (
     <>
@@ -43,7 +43,7 @@ const AddPlayer = ({ players, setPlayers }) => {
           <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Add player</Text>
         )}
       </Pressable>
-      <Pressable
+      {/* <Pressable
         style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : 'blue' },
         styles.startButton]}
         onPress={clearLocalStorage}
@@ -51,7 +51,7 @@ const AddPlayer = ({ players, setPlayers }) => {
         {({ pressed }) => (
           <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Clear players</Text>
         )}
-      </Pressable>
+      </Pressable> */}
     </>
   );
 };
