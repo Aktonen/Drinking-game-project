@@ -31,6 +31,9 @@ function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        <PlayersList players={players} setPlayers={setPlayers} />
+      </View>
       <Text style={styles.title}>Intoxi-deck</Text>
       <View style={styles.handlePlayerContainer}>
         <AddPlayer players={players} setPlayers={setPlayers} />
@@ -53,9 +56,6 @@ function Home({ navigation }) {
           </Text>
         )}
       </Pressable>
-      <View style={styles.footer}>
-        <PlayersList players={players} setPlayers={setPlayers} />
-      </View>
     </View>
   );
 }
