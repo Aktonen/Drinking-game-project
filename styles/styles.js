@@ -5,7 +5,7 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#ffbc3e',
   },
 
   title: {
@@ -24,12 +24,11 @@ export default StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
-    marginBottom: 20,
+    marginBottom: 10,
   },
 
   buttonText: {
     color: 'white',
-    padding: 5,
     textAlign: 'center',
     fontSize: 20,
   },
@@ -76,22 +75,36 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
 
-  footer: {
+  // PlayerList styles
+
+  flatListWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  header: {
     position: 'absolute',
-    bottom: 0,
+    top: 0,
     width: '100%',
-    backgroundColor: '#ddd',
     paddingVertical: 10,
     paddingHorizontal: 20,
     alignItems: 'center',
+    backgroundColor: '#ffbc3e',
   },
-  footerText: {
+
+  headerText: {
     fontSize: 14,
     color: '#555',
     textAlign: 'center',
   },
+
   playerName: {
     fontSize: 16,
     marginVertical: 5,
   },
+
+  playerNameButton: {
+    fontWeight: '500', // Fix this
+  },
+
 });
