@@ -1,46 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { FlatList, Text, View } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React from 'react';
+import { View, FlatList, Text } from 'react-native';
+import styles from '../styles/styles';
+import { v4 as uuidv4 } from 'uuid';
 
-const PlayersListGame = () => {
-  const [players, setPlayers] = useState([]);
-
-  useEffect(() => {
-    const loadPlayers = async () => {
-      try {
-        const storedPlayers = await AsyncStorage.getItem('players');
-        if (storedPlayers) {
-          setPlayers(JSON.parse(storedPlayers));
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    loadPlayers();
-  }, []);
+const PlayersListGame = ({ players }) => {
 
   const renderPlayer = ({ item }) => {
-    const newPlayers = players.filter((player) => player !== item);
-    try {
-      AsyncStorage.setItem('players', JSON.stringify(newPlayers));
-      setPlayers(newPlayers);
-    } catch (error) {
-      console.error(error);
-    }
+
     return (
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Text style={{ marginRight: 10 }}>{item}</Text>
+      <View style={styles.playerNameWrapper}>
+        <Text style={styles.playerName}>{item}</Text>
       </View>
     );
   };
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View style={styles.flatListWrapper}>
       <FlatList
         horizontal
         data={players}
         renderItem={renderPlayer}
-        keyExtractor={(item) => item}
+        keyExtractor={(item) => uuidv4()}
       />
     </View>
   );
