@@ -26,11 +26,9 @@ const PlayersList = ({ players, setPlayers }) => {
           name="delete"
           backgroundColor="#ffbc3e"
           onPress={handleDeletePlayer}
-          color="black"
+          color="red"
           fontWeight="100"
-        >
-          Delete
-        </Icon.Button>
+        />
       </View>
     );
   };
