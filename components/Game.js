@@ -3,8 +3,11 @@ import { Text, View, Pressable, Image } from 'react-native';
 import styles from '../styles/styles';
 import Icon from 'react-native-vector-icons/AntDesign';
 
+import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import PlayersListGame from './PlayersListGame';
 
-export default function Game() {
+export default function Game({ players }) {
 
   // These have to be changed if the app is published
   const IMAGES = [
@@ -21,17 +24,20 @@ export default function Game() {
   useEffect(() => {
     // Fetch a random image on component mount
     const fetchRandomImage = () => {
-      const randomImageUri = getRandomImageUriUri(); //eslint-disable-line
+      const randomImageUri = getRandomImageUri(); //eslint-disable-line
       setImageUri(randomImageUri);
     };
 
     fetchRandomImage();
-  }, []);
+  }, [imageArray]); // eslint-disable-line
 
   function getRandomImageUri() {
-    if (imageArray.length === 0) {
+
+    const tempImageArray = [...imageArray];
+
+    if (tempImageArray.length === 0) {
       // Handle the case where the array is empty (e.g., all images displayed)
-      return null; // Or reset the IMAGES array, or take another action
+      setImageArray(IMAGES);
     }
 
     // Get a random index within the array bounds
@@ -51,19 +57,44 @@ export default function Game() {
     return imageUri;
   }
 
+  const clearLocalStorage = async () => {
+    try {
+      await AsyncStorage.clear();
+      console.log('Local storage cleared!');
+    } catch (error) {
+      console.error('Error clearing local storage:', error);
+    }
+  };
+
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.gameScreen}>
-      {imageUri ? (
-        <Image source={{ uri: imageUri }} style={styles.gameImage} />
-      ) : (
-        <Text>Loading Image...</Text>
-      )}
-      <Pressable style={styles.gameArrowRight} onPress={getRandomImageUri}>
-        <Icon name="arrowright" size={100} color="black" />
-      </Pressable>
-      <Pressable style={styles.gameArrowLeft}>
-        <Icon name="arrowleft" size={100} color="black" />
-      </Pressable>
-    </View>
+    <>
+      <PlayersListGame players={players} />
+      <View style={styles.gameScreen}>
+        {imageUri ? (
+          <Image source={{ uri: imageUri }} style={styles.gameImage} />
+        ) : (
+          <Pressable
+            style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : 'blue' },
+            styles.startButton]}
+            onPress={() => {
+              navigation.goBack();
+              clearLocalStorage();
+            }}
+          >
+            {({ pressed }) => (
+              <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Restart game</Text>
+            )}
+          </Pressable>
+        )}
+        <Pressable style={styles.gameArrowRight} onPress={getRandomImageUri}>
+          <Icon name="arrowright" size={100} color="black" />
+        </Pressable>
+        <Pressable style={styles.gameArrowLeft}>
+          <Icon name="arrowleft" size={100} color="black" />
+        </Pressable>
+      </View>
+    </>
   );
 }
