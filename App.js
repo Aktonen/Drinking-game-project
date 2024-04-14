@@ -43,7 +43,7 @@ function Home({ navigation }) {
           { backgroundColor: pressed ? 'green' : 'blue' },
           styles.startButton,
         ]}
-        onPress={() => navigation.navigate('Game')}
+        onPress={() => navigation.navigate('Game', { players })}
       >
         {({ pressed }) => (
           <Text
@@ -61,10 +61,12 @@ function Home({ navigation }) {
 }
 
 
-function MenuGame({ navigation }) {
+function MenuGame({ navigation, route }) {
+  const players = route.params.players;
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Game />
+      <Game players={players} />
       {/* <PlayersListGame></PlayersListGame> */}
     </View>
   );
