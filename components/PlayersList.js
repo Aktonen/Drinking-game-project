@@ -24,7 +24,7 @@ const PlayersList = ({ players, setPlayers }) => {
         <Icon.Button
           style={styles.playerNameButton}
           name="delete"
-          backgroundColor="#ffbc3e"
+          backgroundColor="#fdd282"
           onPress={handleDeletePlayer}
           color="red"
           fontWeight="100"

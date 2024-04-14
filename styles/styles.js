@@ -101,10 +101,17 @@ export default StyleSheet.create({
   playerNameWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
+    borderColor: 'black',
+    borderWidth: 2,
+    paddingLeft: 15,
+    marginRight: 5,
+    borderRadius: 7,
+    backgroundColor: '#fdd282', // This is also tied to playerList.js icon.button
+    minWidth: 100,
   },
 
   playerName: {
-    fontSize: 16,
+    fontSize: 20,
     marginVertical: 5,
   },
 
