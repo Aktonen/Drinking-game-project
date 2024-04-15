@@ -110,7 +110,7 @@ export default StyleSheet.create({
     paddingLeft: 15,
     marginRight: 5,
     borderRadius: 7,
-    backgroundColor: '#fdd282', // This is also tied to playerList.js icon.button
+    backgroundColor: '#fdd282',
     minWidth: 100,
   },
 
@@ -119,9 +119,5 @@ export default StyleSheet.create({
     marginVertical: 5,
     color: 'white',
   },
-
-  // playerNameButton: {
-  //   fontWeight: '500', // Fix this
-  // },
 
 });
