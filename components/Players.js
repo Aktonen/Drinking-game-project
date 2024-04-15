@@ -5,6 +5,9 @@ import styles from '../styles/styles';
 
 const AddPlayer = ({ players, setPlayers }) => {
   const [playerName, setPlayerName] = useState('');
+  const [colorIndex, setColorIndex] = useState(0);
+
+  const colors = ['green', 'blue', 'red', 'yellow', 'orange'];
 
   const addPlayer = async () => {
     try {
@@ -12,10 +15,13 @@ const AddPlayer = ({ players, setPlayers }) => {
       const players = JSON.parse(storedPlayers);
 
       // Create new player object with color
-      const newPlayer = { name: playerName, color: 'green' };
+      const newPlayer = { name: playerName, color: colors[colorIndex] };
 
       players.push(newPlayer);
       await AsyncStorage.setItem('players', JSON.stringify(players));
+
+      // Update colorIndex (cycle through colors)
+      setColorIndex((colorIndex + 1) % colors.length);
 
       setPlayers(players); // Update state after changes
       setPlayerName(''); // Clear input

@@ -26,7 +26,7 @@ const PlayersList = ({ players, setPlayers }) => {
           name="delete"
           backgroundColor={item.color}
           onPress={handleDeletePlayer}
-          color="red"
+          color="white"
           fontWeight="100"
         />
       </View>

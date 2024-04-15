@@ -117,6 +117,7 @@ export default StyleSheet.create({
   playerName: {
     fontSize: 20,
     marginVertical: 5,
+    color: 'white',
   },
 
   // playerNameButton: {
