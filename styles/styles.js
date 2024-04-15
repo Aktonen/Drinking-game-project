@@ -45,34 +45,36 @@ export default StyleSheet.create({
     fontSize: 20,
   },
 
+  // Game screen styles
+
   gameScreen: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
+    backgroundColor: '#ffbc3e',
   },
 
   gameImage: {
-    width: '50%',
+    width: '70%',
     height: '50%',
     aspectRatio: 1,
-    resizeMode: 'stretch',
+    resizeMode: 'contain',
+  },
+
+  gameArrow: {
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   gameArrowRight: {
-    position: 'absolute',
     right: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 
   gameArrowLeft: {
-    position: 'absolute',
     left: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 
   // PlayerList styles
@@ -80,6 +82,7 @@ export default StyleSheet.create({
   flatListWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: '#ffbc3e',
   },
 
   header: {

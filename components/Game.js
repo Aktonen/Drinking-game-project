@@ -88,11 +88,11 @@ export default function Game({ players }) {
             )}
           </Pressable>
         )}
-        <Pressable style={styles.gameArrowRight} onPress={getRandomImageUri}>
-          <Icon name="arrowright" size={100} color="black" />
+        <Pressable style={[styles.gameArrow, styles.gameArrowRight]} onPress={getRandomImageUri}>
+          <Icon name="arrowright" size={100} color="white" />
         </Pressable>
-        <Pressable style={styles.gameArrowLeft}>
-          <Icon name="arrowleft" size={100} color="black" />
+        <Pressable style={[styles.gameArrow, styles.gameArrowLeft]}>
+          <Icon name="arrowleft" size={100} color="white" />
         </Pressable>
       </View>
     </>
