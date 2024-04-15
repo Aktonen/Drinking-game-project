@@ -83,6 +83,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#ffbc3e',
+    zIndex: 999,
   },
 
   header: {
