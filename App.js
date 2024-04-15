@@ -65,7 +65,7 @@ function MenuGame({ navigation, route }) {
   const players = route.params.players;
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.gameWrapper}>
       <Game players={players} />
       {/* <PlayersListGame></PlayersListGame> */}
     </View>

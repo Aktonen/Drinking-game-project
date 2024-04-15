@@ -47,6 +47,12 @@ export default StyleSheet.create({
 
   // Game screen styles
 
+  gameWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
   gameScreen: {
     flex: 1,
     flexDirection: 'row',
