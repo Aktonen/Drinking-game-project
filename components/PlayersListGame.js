@@ -8,8 +8,8 @@ const PlayersListGame = ({ players }) => {
   const renderPlayer = ({ item }) => {
 
     return (
-      <View style={styles.playerNameWrapper}>
-        <Text style={styles.playerName}>{item}</Text>
+      <View style={[styles.playerNameWrapper, { backgroundColor: item.color }]}>
+        <Text style={styles.playerName}>{item.name}</Text>
       </View>
     );
   };

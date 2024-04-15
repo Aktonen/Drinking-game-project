@@ -19,12 +19,12 @@ const PlayersList = ({ players, setPlayers }) => {
     };
 
     return (
-      <View style={styles.playerNameWrapper}>
-        <Text style={styles.playerName}>{item}</Text>
+      <View style={[styles.playerNameWrapper, { backgroundColor: item.color }]}>
+        <Text style={styles.playerName}>{item.name}</Text>
         <Icon.Button
           style={styles.playerNameButton}
           name="delete"
-          backgroundColor="#fdd282"
+          backgroundColor={item.color}
           onPress={handleDeletePlayer}
           color="red"
           fontWeight="100"

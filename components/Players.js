@@ -10,8 +10,13 @@ const AddPlayer = ({ players, setPlayers }) => {
     try {
       const storedPlayers = await AsyncStorage.getItem('players') || '[]';
       const players = JSON.parse(storedPlayers);
-      players.push(playerName);
+
+      // Create new player object with color
+      const newPlayer = { name: playerName, color: 'green' };
+
+      players.push(newPlayer);
       await AsyncStorage.setItem('players', JSON.stringify(players));
+
       setPlayers(players); // Update state after changes
       setPlayerName(''); // Clear input
     } catch (error) {
