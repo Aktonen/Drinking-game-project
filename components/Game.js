@@ -20,6 +20,7 @@ export default function Game({ players }) {
 
   const [imageUri, setImageUri] = useState(null);
   const [imageArray, setImageArray] = useState(IMAGES);
+  const [playerTurn, setPlayerTurn] = useState(0);
 
   useEffect(() => {
     // Fetch a random image on component mount
@@ -30,6 +31,17 @@ export default function Game({ players }) {
 
     fetchRandomImage();
   }, [imageArray]); // eslint-disable-line
+
+  // This function gives us a when changing cards
+  // We use this to indicate whos turn it is in the playersListGame component
+  function changeTurn() {
+
+    if (playerTurn >= players.length - 1) {
+      setPlayerTurn(0);
+    } else {
+      setPlayerTurn(playerTurn + 1);
+    }
+  }
 
   function getRandomImageUri() {
 
@@ -70,7 +82,7 @@ export default function Game({ players }) {
 
   return (
     <>
-      <PlayersListGame players={players} />
+      <PlayersListGame players={players} playerTurn={playerTurn} />
       <View style={styles.gameScreen}>
         {imageUri ? (
           <Image source={{ uri: imageUri }} style={styles.gameImage} />
@@ -88,7 +100,10 @@ export default function Game({ players }) {
             )}
           </Pressable>
         )}
-        <Pressable style={[styles.gameArrow, styles.gameArrowRight]} onPress={getRandomImageUri}>
+        <Pressable style={[styles.gameArrow, styles.gameArrowRight]} onPress={() => {
+          getRandomImageUri();
+          changeTurn();
+        }}>
           <Icon name="arrowright" size={100} color="white" />
         </Pressable>
         <Pressable style={[styles.gameArrow, styles.gameArrowLeft]}>

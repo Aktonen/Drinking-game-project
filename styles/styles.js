@@ -85,7 +85,7 @@ export default StyleSheet.create({
 
   playerNameWrapperGame: {
     margin: 10,
-    borderColor: 'black',
+    borderColor: 'white',
     borderWidth: 2,
     paddingLeft: 15,
     paddingRight: 15,
