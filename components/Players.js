@@ -7,7 +7,7 @@ const AddPlayer = ({ players, setPlayers }) => {
   const [playerName, setPlayerName] = useState('');
   const [colorIndex, setColorIndex] = useState(0);
 
-  const colors = ['green', 'blue', 'red', 'yellow', 'orange'];
+  const colors = ['green', 'blue', 'red', 'orange', 'brown'];
 
   const addPlayer = async () => {
     try {

@@ -83,6 +83,17 @@ export default StyleSheet.create({
     left: 20,
   },
 
+  playerNameWrapperGame: {
+    margin: 10,
+    borderColor: 'black',
+    borderWidth: 2,
+    paddingLeft: 15,
+    paddingRight: 15,
+    marginRight: 5,
+    borderRadius: 7,
+    minWidth: 70,
+  },
+
   // PlayerList styles
 
   flatListWrapper: {
@@ -116,7 +127,6 @@ export default StyleSheet.create({
     paddingLeft: 15,
     marginRight: 5,
     borderRadius: 7,
-    backgroundColor: '#fdd282',
     minWidth: 100,
   },
 
