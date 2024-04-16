@@ -3,14 +3,15 @@ import { useState, useEffect } from 'react';
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, Text, View, ImageBackground } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
 import styles from './styles/styles';
 import AddPlayer from './components/Players';
 import Game from './components/Game';
 import PlayersList from './components/PlayersList';
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
+import Background from './images/beer_background.jpeg';
 
 function Home({ navigation }) {
   const [players, setPlayers] = useState([]);
@@ -31,31 +32,37 @@ function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <PlayersList players={players} setPlayers={setPlayers} />
-      </View>
-      <Text style={styles.title}>Intoxi-deck</Text>
-      <View style={styles.handlePlayerContainer}>
-        <AddPlayer players={players} setPlayers={setPlayers} />
-      </View>
-      <Pressable
-        style={({ pressed }) => [
-          { backgroundColor: pressed ? 'green' : 'blue' },
-          styles.startButton,
-        ]}
-        onPress={() => navigation.navigate('Game', { players })}
+      <ImageBackground
+        source={Background}
+        style={styles.container}
+        imageStyle={styles.backgroundImage}
       >
-        {({ pressed }) => (
-          <Text
-            style={[
-              { color: pressed ? 'white' : 'black' },
-              styles.buttonText,
-            ]}
-          >
-            Start game
-          </Text>
-        )}
-      </Pressable>
+        <View style={styles.header}>
+          <PlayersList players={players} setPlayers={setPlayers} />
+        </View>
+        <Text style={styles.title}>Intoxi-deck</Text>
+        <View style={styles.handlePlayerContainer}>
+          <AddPlayer players={players} setPlayers={setPlayers} />
+        </View>
+        <Pressable
+          style={({ pressed }) => [
+            { backgroundColor: pressed ? 'green' : '#ffbc3e' },
+            styles.startButton,
+          ]}
+          onPress={() => navigation.navigate('Game', { players })}
+        >
+          {({ pressed }) => (
+            <Text
+              style={[
+                { color: pressed ? 'white' : 'black' },
+                styles.buttonText,
+              ]}
+            >
+              Start game
+            </Text>
+          )}
+        </Pressable>
+      </ImageBackground>
     </View>
   );
 }
@@ -80,10 +87,6 @@ function MyStack() {
       <Stack.Screen
         name="Home"
         component={Home}
-        options={{
-          headerTintColor: 'white',
-          headerStyle: { backgroundColor: 'tomato' },
-        }}
       />
       <Stack.Screen
         name="Game"

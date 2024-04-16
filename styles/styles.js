@@ -6,13 +6,38 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#ffbc3e',
+    height: '100%',
+    width: '100%',
+  },
+
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
   },
 
   title: {
     padding: 10,
-    fontSize: 20,
+    fontSize: 40,
     fontWeight: 'bold',
+    color: 'white',
     marginBottom: 20,
+    backgroundColor: '#ffbb3ec5',
+    borderRadius: 10,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
+  },
+
+  textInput: {
+    backgroundColor: '#ffbb3ec5',
+    borderRadius: 10,
+    height: 50,
+    color: 'white',
+    fontSize: 20,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
   },
 
   startButton: {
@@ -31,6 +56,9 @@ export default StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontSize: 20,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
   },
 
   playerInput: {
@@ -99,7 +127,6 @@ export default StyleSheet.create({
   flatListWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#ffbc3e',
     zIndex: 999,
   },
 
@@ -110,7 +137,6 @@ export default StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     alignItems: 'center',
-    backgroundColor: '#ffbc3e',
   },
 
   headerText: {
@@ -134,6 +160,9 @@ export default StyleSheet.create({
     fontSize: 20,
     marginVertical: 5,
     color: 'white',
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
   },
 
 });

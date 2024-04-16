@@ -34,39 +34,23 @@ const AddPlayer = ({ players, setPlayers }) => {
     }
   };
 
-  // const clearLocalStorage = async () => {
-  //   try {
-  //     await AsyncStorage.clear();
-  //     console.log('Local storage cleared!');
-  //   } catch (error) {
-  //     console.error('Error clearing local storage:', error);
-  //   }
-  // };
-
   return (
     <>
       <TextInput
+        style={styles.textInput}
         value={playerName}
         onChangeText={setPlayerName}
+        placeholderTextColor={'white'}
         placeholder="Enter player name"
         textAlign="center"
       />
       <Pressable
-        style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : 'blue' }, styles.startButton]}
+        style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : '#ffbc3e' }, styles.startButton]}
         onPress={addPlayer}>
         {({ pressed }) => (
           <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Add player</Text>
         )}
       </Pressable>
-      {/* <Pressable
-        style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : 'blue' },
-        styles.startButton]}
-        onPress={clearLocalStorage}
-      >
-        {({ pressed }) => (
-          <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Clear players</Text>
-        )}
-      </Pressable> */}
     </>
   );
 };
