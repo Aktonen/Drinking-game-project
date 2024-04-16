@@ -4,6 +4,14 @@ module.exports = {
     "@react-native-community",
     "plugin:react/recommended",
   ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
   rules: {
     "semi": ["error", "always"],
     "quotes": ["error", "single"],
