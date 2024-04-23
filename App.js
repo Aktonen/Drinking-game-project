@@ -11,7 +11,7 @@ import styles from './styles/styles';
 import AddPlayer from './components/Players';
 import Game from './components/Game';
 import PlayersList from './components/PlayersList';
-import Background from './images/beer_background.jpeg';
+import Background from './images/beer_background_optimized.jpeg';
 
 function Home({ navigation }) {
   const [players, setPlayers] = useState([]);
