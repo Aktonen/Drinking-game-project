@@ -3,7 +3,7 @@ import { View, FlatList, Text } from 'react-native';
 import styles from '../styles/styles';
 import { v4 as uuidv4 } from 'uuid';
 
-const PlayersListGame = ({ players, playerTurn }) => {
+const PlayersListGame = ({ players, playerTurn, color }) => {
 
   const renderPlayer = ({ item }) => {
 
@@ -18,7 +18,7 @@ const PlayersListGame = ({ players, playerTurn }) => {
   };
 
   return (
-    <View style={styles.flatListWrapper}>
+    <View style={[styles.flatListWrapper, { backgroundColor: color }]}>
       <FlatList
         horizontal
         data={players}

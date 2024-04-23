@@ -82,8 +82,12 @@ export default function Game({ players }) {
 
   return (
     <>
-      <PlayersListGame players={players} playerTurn={playerTurn} />
-      <View style={styles.gameScreen}>
+      <PlayersListGame
+        players={players}
+        playerTurn={playerTurn}
+        color={players[playerTurn].color}
+      />
+      <View style={[styles.gameScreen, { backgroundColor: players[playerTurn].color }]}>
         {imageUri ? (
           <Image source={{ uri: imageUri }} style={styles.gameImage} />
         ) : (

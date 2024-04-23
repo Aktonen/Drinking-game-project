@@ -87,7 +87,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    backgroundColor: '#ffbc3e',
   },
 
   gameImage: {
