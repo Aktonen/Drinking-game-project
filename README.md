@@ -1,6 +1,6 @@
 Title: Intoxi-deck
 
-Summary: This is a personal project for a drinking game application. Main purpose for developing this is to hone my skills with react-native. If I manage to create a working and fun application I plan to publish it to the play store.
+Summary: This is a personal project for a drinking game application. Main purpose for developing this is to hone my skills with React native. If I manage to create a working and fun application I plan to publish it to the play store.
 This would be my first published app and I would like to learn what it's like to publish an app.
 
 Features: Turn based drinking game. Inspired by picolo. Users enter players and are given prompts on their turn.
