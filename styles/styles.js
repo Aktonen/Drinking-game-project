@@ -1,4 +1,7 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+let fullWidth = Dimensions.get('window').width; //full width
+let fullHeight = Dimensions.get('window').height; //full height
 
 export default StyleSheet.create({
   container: {
@@ -91,6 +94,13 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
+  },
+
+  cardPressable: {
+    height: '100%',
+    width: fullWidth,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   gameImage: {
