@@ -96,6 +96,10 @@ export default StyleSheet.create({
     width: '100%',
   },
 
+  gameText: {
+    color: 'white',
+  },
+
   cardPressable: {
     height: '100%',
     width: fullWidth,

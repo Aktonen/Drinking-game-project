@@ -295,7 +295,7 @@ export default function Game({ players }) {
             changeTurn();
           }}>
             <View style={styles.cardPressable}>
-              <Text>{imageUri}</Text>
+              <Text style={styles.gameText}>{imageUri}</Text>
             </View>
           </TouchableOpacity>
         ) : (
