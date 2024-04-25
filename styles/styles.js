@@ -16,6 +16,10 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
 
+  startScreenWrapper: {
+    marginTop: 40,
+  },
+
   title: {
     padding: 10,
     fontSize: 40,
