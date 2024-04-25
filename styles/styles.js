@@ -103,27 +103,6 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
 
-  gameImage: {
-    width: '70%',
-    height: '50%',
-    aspectRatio: 1,
-    resizeMode: 'contain',
-  },
-
-  gameArrow: {
-    position: 'absolute',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  gameArrowRight: {
-    right: 20,
-  },
-
-  gameArrowLeft: {
-    left: 20,
-  },
-
   playerNameWrapperGame: {
     margin: 10,
     borderColor: 'white',

@@ -290,7 +290,6 @@ export default function Game({ players }) {
       />
       <View style={[styles.gameScreen, { backgroundColor: players[playerTurn].color }]}>
         {imageUri ? (
-          // <Image source={{ uri: imageUri }} style={styles.gameImage} />
           <TouchableOpacity onPress={() => {
             getRandomImageUri();
             changeTurn();
