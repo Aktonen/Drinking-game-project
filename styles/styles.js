@@ -118,6 +118,13 @@ export default StyleSheet.create({
     minWidth: 70,
   },
 
+  // Animation
+
+  beerContainer: {
+    backgroundColor: 'gold',
+    width: fullWidth,
+  },
+
   // PlayerList styles
 
   flatListWrapper: {

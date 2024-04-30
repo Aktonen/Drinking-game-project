@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Pressable } from 'react-native';
+import { Text, View, Pressable, Dimensions } from 'react-native';
 import styles from '../styles/styles';
 
+import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import PlayersListGame from './PlayersListGame';
@@ -15,7 +16,12 @@ export default function Game({ players }) {
   const [cardArray, setCardArray] = useState(CARDS);
   const [playerTurn, setPlayerTurn] = useState(0);
 
+  let fullHeight = Dimensions.get('window').height; //full height
+
   useEffect(() => {
+    // Start animation when page loaded
+    startAnimation();
+
     // Fetch a random image on component mount
     const fetchRandomImage = () => {
       const randomCardText = getRandomCardText();
@@ -24,6 +30,19 @@ export default function Game({ players }) {
 
     fetchRandomImage();
   }, [cardArray]); // eslint-disable-line react-hooks/exhaustive-deps
+
+
+  const heightValue = useSharedValue(fullHeight);
+
+  const startAnimation = () => {
+    heightValue.value = withTiming(0, { duration: 2000 }); // Animate to a height of 300
+  };
+
+  const animatedStyles = useAnimatedStyle(() => {
+    return {
+      height: heightValue.value,
+    };
+  });
 
   // This function gives us a when changing cards
   // We use this to indicate whos turn it is in the playersListGame component
@@ -75,6 +94,7 @@ export default function Game({ players }) {
 
   return (
     <>
+      <Animated.View style={[styles.beerContainer, animatedStyles]} />
       <PlayersListGame
         players={players}
         playerTurn={playerTurn}
