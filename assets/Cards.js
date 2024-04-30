@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable quotes*/
 
 const CARDS = [
   { type: 'normal', text: "Drink something you haven't drunk today" },

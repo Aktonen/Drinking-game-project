@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-let fullWidth = Dimensions.get('window').width; //full width
-let fullHeight = Dimensions.get('window').height; //full height
+let fullWidth = Dimensions.get('window').width; // full width
+let fullHeight = Dimensions.get('window').height; // full height
 
 export default StyleSheet.create({
   container: {
