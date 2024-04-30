@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -7,14 +7,29 @@ import { Pressable, Text, View, ImageBackground } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+
 import styles from './styles/styles';
 import AddPlayer from './components/Players';
 import Game from './components/Game';
 import PlayersList from './components/PlayersList';
 import Background from './images/beer_background_optimized.jpeg';
 
+SplashScreen.preventAutoHideAsync();
+
 function Home({ navigation }) {
   const [players, setPlayers] = useState([]);
+
+  const [fontsLoaded, fontError] = useFonts({
+    'TitanOne': require('./assets/fonts/TitanOne-Regular.ttf'),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontError) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, fontError]);
 
   useEffect(() => {
     const loadPlayers = async () => {
@@ -31,7 +46,7 @@ function Home({ navigation }) {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} onLayout={onLayoutRootView}>
       <ImageBackground
         source={Background}
         style={styles.container}
@@ -55,7 +70,7 @@ function Home({ navigation }) {
             {({ pressed }) => (
               <Text
                 style={[
-                  { color: pressed ? 'white' : 'black' },
+                  { color: pressed ? 'white' : 'black' }, // eslint-disable-line react-native/no-inline-styles
                   styles.buttonText,
                 ]}
               >

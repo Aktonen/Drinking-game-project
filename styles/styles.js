@@ -98,6 +98,7 @@ export default StyleSheet.create({
 
   gameText: {
     color: 'white',
+    fontFamily: 'TitanOne',
   },
 
   cardPressable: {
