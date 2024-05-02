@@ -99,6 +99,12 @@ export default StyleSheet.create({
   gameText: {
     color: 'white',
     fontFamily: 'TitanOne',
+    fontSize: 25,
+    paddingLeft: 15,
+    paddingRight: 15,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)', // Subtle black shadow
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
   },
 
   cardPressable: {
