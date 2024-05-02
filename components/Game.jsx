@@ -4,7 +4,6 @@ import styles from '../styles/styles';
 
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import PlayersListGame from './PlayersListGame';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
