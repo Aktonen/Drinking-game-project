@@ -48,7 +48,7 @@ const AddPlayer = ({ players, setPlayers }) => {
         style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : '#ffbc3e' }, styles.startButton]}
         onPress={addPlayer}>
         {({ pressed }) => (
-          <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Add player</Text>
+          <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Add player</Text> // eslint-disable-line react-native/no-inline-styles
         )}
       </Pressable>
     </>
