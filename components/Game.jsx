@@ -24,8 +24,10 @@ export default function Game({ players }) {
 
     // Fetch a random image on component mount
     const fetchRandomImage = () => {
-      const randomCardText = getRandomCardText();
-      setCardText(randomCardText);
+      if (cardText === null) {
+        const randomCardText = getRandomCardText();
+        setCardText(randomCardText);
+      }
     };
 
     fetchRandomImage();
@@ -65,30 +67,21 @@ export default function Game({ players }) {
     }
 
     // Get a random index within the array bounds
-    const randomIndex = Math.floor(Math.random() * cardArray.length);
+    const randomIndex = Math.floor(Math.random() * tempCardArray.length);
 
     // Extract the image URI at the random index
-    const cardText = cardArray[randomIndex];
+    const randomCardText = tempCardArray[randomIndex];
 
     // Remove the image from the array
-    cardArray.splice(randomIndex, 1);
+    tempCardArray.splice(randomIndex, 1);
 
     // Update the cardText state
-    setCardText(cardText);
-    setCardArray(cardArray);
+    setCardText(randomCardText);
+    setCardArray(tempCardArray);
 
     // Return the randomly selected image URI
-    return cardText;
+    return randomCardText;
   }
-
-  const clearLocalStorage = async () => {
-    try {
-      await AsyncStorage.clear();
-      console.log('Local storage cleared!');
-    } catch (error) {
-      console.error('Error clearing local storage:', error);
-    }
-  };
 
   const navigation = useNavigation();
 
@@ -116,7 +109,6 @@ export default function Game({ players }) {
             styles.startButton]}
             onPress={() => {
               navigation.goBack();
-              clearLocalStorage();
             }}
           >
             {({ pressed }) => (
