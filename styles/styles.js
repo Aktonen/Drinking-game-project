@@ -93,8 +93,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%',
-    paddingBottom: 20,
+    width: fullWidth,
+    height: fullHeight,
+    paddingBottom: 61,
   },
 
   cardTitle: {

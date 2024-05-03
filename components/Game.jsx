@@ -89,7 +89,7 @@ export default function Game({ players }) {
       case 'you-choose':
         return { title: 'You-choose', style: {} };
       case 'urgent':
-        return { title: 'Urgent', style: {} };
+        return { title: 'Urgent', style: { color: 'red', textTransform: 'uppercase' } };
       case 'waterfall':
         return { title: 'Waterfall', style: {} };
       default:
