@@ -85,15 +85,15 @@ export default function Game({ players }) {
   function getCardProperties(type) {
     switch (type) {
       case 'category':
-        return { title: 'Category', style: { color: 'blue' } };
+        return { title: 'Category', style: {} };
       case 'you-choose':
-        return { title: 'You-choose', style: { color: 'white' } };
+        return { title: 'You-choose', style: {} };
       case 'urgent':
-        return { title: 'Urgent', style: { color: 'white' } };
+        return { title: 'Urgent', style: {} };
       case 'waterfall':
-        return { title: 'Waterfall', style: { color: 'white' } };
+        return { title: 'Waterfall', style: {} };
       default:
-        return { title: 'Card', style: { color: 'white' } };
+        return { title: '', style: {} };
     }
   }
 

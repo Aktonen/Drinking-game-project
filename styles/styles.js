@@ -94,6 +94,19 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
+    paddingBottom: 20,
+  },
+
+  cardTitle: {
+    color: 'white',
+    fontFamily: 'TitanOne',
+    fontSize: 40,
+    paddingLeft: 15,
+    paddingRight: 15,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)', // Subtle black shadow
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
+    top: -30,
   },
 
   gameText: {
