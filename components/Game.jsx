@@ -82,6 +82,21 @@ export default function Game({ players }) {
     return randomCardText;
   }
 
+  function getCardProperties(type) {
+    switch (type) {
+      case 'category':
+        return { title: 'Category', style: { color: 'blue' } };
+      case 'you-choose':
+        return { title: 'You-choose', style: { color: 'white' } };
+      case 'urgent':
+        return { title: 'Urgent', style: { color: 'white' } };
+      case 'waterfall':
+        return { title: 'Waterfall', style: { color: 'white' } };
+      default:
+        return { title: 'Card', style: { color: 'white' } };
+    }
+  }
+
   const navigation = useNavigation();
 
   return (
@@ -99,6 +114,9 @@ export default function Game({ players }) {
             changeTurn();
           }}>
             <View style={styles.cardPressable}>
+              <Text style={[styles.cardTitle, getCardProperties(cardText.type).style]}>
+                {getCardProperties(cardText.type).title}
+              </Text>
               <Text style={styles.gameText}>{cardText.text}</Text>
             </View>
           </TouchableOpacity>
