@@ -31,8 +31,8 @@ export default StyleSheet.create({
     marginBottom: 20,
     backgroundColor: '#ffbb3ec5',
     borderRadius: 10,
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: { width: -1, height: 1 },
+    textShadowColor: 'rgba(0, 0, 0, 0.50)',
+    textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 10,
   },
 
@@ -42,8 +42,8 @@ export default StyleSheet.create({
     height: 50,
     color: 'white',
     fontSize: 20,
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: { width: -1, height: 1 },
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 10,
   },
 
@@ -63,8 +63,8 @@ export default StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontSize: 20,
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: { width: -1, height: 1 },
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 10,
   },
 
@@ -170,9 +170,11 @@ export default StyleSheet.create({
     fontSize: 20,
     marginVertical: 5,
     color: 'white',
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: { width: -1, height: 1 },
+    textShadowColor: 'rgba(0, 0, 0, 0.50)',
+    textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 10,
+    paddingLeft: 2,
+    paddingRight: 2,
   },
 
 });
