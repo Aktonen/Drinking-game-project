@@ -6,6 +6,7 @@ import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-na
 import { useNavigation } from '@react-navigation/native';
 import PlayersListGame from './PlayersListGame';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Svg, { Path } from 'react-native-svg';
 
 import CARDS from '../assets/Cards';
 
@@ -87,7 +88,7 @@ export default function Game({ players }) {
       case 'category':
         return { title: 'Category', style: {} };
       case 'you-choose':
-        return { title: 'You-choose', style: {} };
+        return { title: 'You-choose!', style: {} };
       case 'urgent':
         return { title: 'Urgent', style: { color: 'red', textTransform: 'uppercase' } };
       case 'waterfall':
@@ -101,7 +102,13 @@ export default function Game({ players }) {
 
   return (
     <>
-      <Animated.View style={[styles.beerContainer, animatedStyles]} />
+      <Animated.View style={[styles.beerContainer, animatedStyles]}>
+        <Svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320">
+          <Path fill="#ffffff" fillOpacity="1" d="M0,128L30,144C60,160,120,192,180,197.3C240,203,300,181,360,176C420,171,480,181,540,197.3C600,213,660,235,720,218.7C780,203,840,149,900,144C960,139,1020,181,1080,170.7C1140,160,1200,96,1260,96C1320,96,1380,160,1410,192L1440,224L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z" />
+        </Svg>
+      </Animated.View>
       <PlayersListGame
         players={players}
         playerTurn={playerTurn}

@@ -144,6 +144,7 @@ export default StyleSheet.create({
   beerContainer: {
     backgroundColor: 'gold',
     width: fullWidth,
+    bottom: 0,
   },
 
   // PlayerList styles
