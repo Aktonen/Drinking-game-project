@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TextInput, Pressable, Text } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from '../styles/styles';
@@ -9,6 +9,14 @@ const AddPlayer = ({ players, setPlayers }) => {
   const [playerNumber, setPlayerNumber] = useState(0);
 
   const colors = ['#f7524d', '#f7a84d', '#c9c03c', '#5ef74d', '#4d58f7', '#b64df7'];
+
+  useEffect(() => {
+    if (players.length > 0) {
+      setPlayerNumber(players.length);
+      setColorIndex(players.length % colors.length);
+    }
+  }, [players]); // eslint-disable-line react-hooks/exhaustive-deps
+
 
   const addPlayer = async () => {
     if (playerName !== '') {
@@ -21,12 +29,6 @@ const AddPlayer = ({ players, setPlayers }) => {
 
         players.push(newPlayer);
         await AsyncStorage.setItem('players', JSON.stringify(players));
-
-        // Update playerNumber
-        setPlayerNumber(playerNumber + 1);
-
-        // Update colorIndex (cycle through colors)
-        setColorIndex((colorIndex + 1) % colors.length);
 
         setPlayers(players); // Update state after changes
         setPlayerName(''); // Clear input
