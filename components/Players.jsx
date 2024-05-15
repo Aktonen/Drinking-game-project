@@ -11,26 +11,31 @@ const AddPlayer = ({ players, setPlayers }) => {
   const colors = ['#f7524d', '#f7a84d', '#c9c03c', '#5ef74d', '#4d58f7', '#b64df7'];
 
   const addPlayer = async () => {
-    try {
-      const storedPlayers = await AsyncStorage.getItem('players') || '[]';
-      const players = JSON.parse(storedPlayers);
+    if (playerName !== '') {
+      try {
+        const storedPlayers = await AsyncStorage.getItem('players') || '[]';
+        const players = JSON.parse(storedPlayers);
 
-      // Create new player object with color
-      const newPlayer = { index: playerNumber, name: playerName, color: colors[colorIndex] };
+        // Create new player object with color
+        const newPlayer = { index: playerNumber, name: playerName, color: colors[colorIndex] };
 
-      players.push(newPlayer);
-      await AsyncStorage.setItem('players', JSON.stringify(players));
+        players.push(newPlayer);
+        await AsyncStorage.setItem('players', JSON.stringify(players));
 
-      // Update playerNumber
-      setPlayerNumber(playerNumber + 1);
+        // Update playerNumber
+        setPlayerNumber(playerNumber + 1);
 
-      // Update colorIndex (cycle through colors)
-      setColorIndex((colorIndex + 1) % colors.length);
+        // Update colorIndex (cycle through colors)
+        setColorIndex((colorIndex + 1) % colors.length);
 
-      setPlayers(players); // Update state after changes
-      setPlayerName(''); // Clear input
-    } catch (error) {
-      console.error(error);
+        setPlayers(players); // Update state after changes
+        setPlayerName(''); // Clear input
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      // Todo replace with modal
+      alert('Please enter a player name'); // eslint-disable-line no-alert
     }
   };
 
