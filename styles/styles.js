@@ -33,7 +33,7 @@ export default StyleSheet.create({
     borderRadius: 10,
     textShadowColor: 'rgba(0, 0, 0, 0.50)',
     textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 10,
+    textShadowRadius: 5,
   },
 
   textInput: {
@@ -45,7 +45,7 @@ export default StyleSheet.create({
     fontSize: 20,
     textShadowColor: 'rgba(0, 0, 0, 0.5)',
     textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 10,
+    textShadowRadius: 5,
   },
 
   startButton: {
@@ -66,7 +66,7 @@ export default StyleSheet.create({
     fontSize: 20,
     textShadowColor: 'rgba(0, 0, 0, 0.5)',
     textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 10,
+    textShadowRadius: 5,
   },
 
   playerInput: {
@@ -188,7 +188,7 @@ export default StyleSheet.create({
     color: 'white',
     textShadowColor: 'rgba(0, 0, 0, 0.50)',
     textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 10,
+    textShadowRadius: 5,
     paddingLeft: 2,
     paddingRight: 2,
   },
