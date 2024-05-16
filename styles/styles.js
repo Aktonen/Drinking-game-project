@@ -39,6 +39,7 @@ export default StyleSheet.create({
   textInput: {
     backgroundColor: '#ffbb3ec5',
     borderRadius: 10,
+    borderColor: 'red',
     height: 50,
     color: 'white',
     fontSize: 20,

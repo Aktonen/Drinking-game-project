@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useEffect, useState } from 'react';
 import { TextInput, Pressable, Text } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -7,6 +8,7 @@ const AddPlayer = ({ players, setPlayers }) => {
   const [playerName, setPlayerName] = useState('');
   const [colorIndex, setColorIndex] = useState(0);
   const [playerNumber, setPlayerNumber] = useState(0);
+  const [inputError, setInputError] = useState(false);
 
   const colors = ['#f7524d', '#f7a84d', '#c9c03c', '#5ef74d', '#4d58f7', '#b64df7'];
 
@@ -36,27 +38,26 @@ const AddPlayer = ({ players, setPlayers }) => {
         console.error(error);
       }
     } else {
-      // Todo replace with modal
-      alert('Please enter a player name'); // eslint-disable-line no-alert
+      setInputError(true);
     }
   };
 
   return (
     <>
       <TextInput
-        style={styles.textInput}
+        style={[styles.textInput, { borderWidth: inputError ? 2 : 0 }]} // The borderColor is red. If there is an error show the border
         value={playerName}
         onChangeText={setPlayerName}
-        placeholderTextColor={'white'}
+        placeholderTextColor={inputError ? 'red' : 'white'} // Change placeholder text color to red if there is an error
         placeholder="Enter player name"
         textAlign="center"
+        autoFocus={false}
+        onFocus={() => setInputError(false)}
       />
       <Pressable
         style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : '#ffbc3e' }, styles.startButton]}
         onPress={addPlayer}>
-        {({ pressed }) => (
-          <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Add player</Text> // eslint-disable-line react-native/no-inline-styles
-        )}
+        <Text style={styles.buttonText}>Add player</Text>
       </Pressable>
     </>
   );
