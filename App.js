@@ -59,25 +59,25 @@ function Home({ navigation }) {
           <Text style={styles.title}>Intoxi-deck</Text>
           <View style={styles.handlePlayerContainer}>
             <AddPlayer players={players} setPlayers={setPlayers} />
+            <Pressable
+              style={({ pressed }) => [
+                { backgroundColor: pressed ? 'green' : '#ffbc3e' },
+                styles.startButton,
+              ]}
+              onPress={() => navigation.navigate('Game', { players })}
+            >
+              {({ pressed }) => (
+                <Text
+                  style={[
+                    { color: pressed ? 'white' : 'black' }, // eslint-disable-line react-native/no-inline-styles
+                    styles.buttonText,
+                  ]}
+                >
+                  Start game
+                </Text>
+              )}
+            </Pressable>
           </View>
-          <Pressable
-            style={({ pressed }) => [
-              { backgroundColor: pressed ? 'green' : '#ffbc3e' },
-              styles.startButton,
-            ]}
-            onPress={() => navigation.navigate('Game', { players })}
-          >
-            {({ pressed }) => (
-              <Text
-                style={[
-                  { color: pressed ? 'white' : 'black' }, // eslint-disable-line react-native/no-inline-styles
-                  styles.buttonText,
-                ]}
-              >
-                Start game
-              </Text>
-            )}
-          </Pressable>
         </View>
       </ImageBackground>
     </View>

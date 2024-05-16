@@ -36,6 +36,10 @@ export default StyleSheet.create({
     textShadowRadius: 5,
   },
 
+  handlePlayerContainer: {
+    alignItems: 'center',
+  },
+
   textInput: {
     backgroundColor: '#ffbb3ec5',
     borderRadius: 10,
@@ -46,6 +50,7 @@ export default StyleSheet.create({
     textShadowColor: 'rgba(0, 0, 0, 0.5)',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 5,
+    width: 200,
   },
 
   startButton: {
