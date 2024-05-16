@@ -10,7 +10,7 @@ const AddPlayer = ({ players, setPlayers }) => {
   const [playerNumber, setPlayerNumber] = useState(0);
   const [inputError, setInputError] = useState(false);
 
-  const colors = ['#f7524d', '#f7a84d', '#c9c03c', '#5ef74d', '#4d58f7', '#b64df7'];
+  const colors = ['#f7524d', '#f7a84d', '#f1f74d', '#8acf36', '#47ffc2', '#4759ff', '#ac47ff', '#ff47e6'];
 
   useEffect(() => {
     if (players.length > 0) {
