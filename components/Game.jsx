@@ -90,7 +90,7 @@ export default function Game({ players }) {
       case 'you-choose':
         return { title: 'You-choose!', style: styles.cardsYouchoose };
       case 'urgent':
-        return { title: 'Urgent', style: styles.cardsUrgent };
+        return { title: 'Urgent!', style: styles.cardsUrgent };
       case 'waterfall':
         return { title: 'Waterfall', style: styles.cardsWaterfall };
       default:

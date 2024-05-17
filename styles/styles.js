@@ -198,4 +198,38 @@ export default StyleSheet.create({
     paddingRight: 2,
   },
 
+
+  // Card styles
+
+  cardsUrgent: {
+    color: 'red',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    fontSize: 35,
+    textAlign: 'center',
+  },
+
+  cardsCategory: {
+    color: 'orange',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    fontSize: 30,
+    textAlign: 'center',
+  },
+
+  cardsYouchoose: {
+    color: 'white',
+    textTransform: 'uppercase',
+    fontStyle: 'italic',
+    fontSize: 30,
+    textAlign: 'center',
+  },
+
+  cardsWaterfall: {
+    color: '#31f5f5',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    fontSize: 35,
+    textAlign: 'center',
+  },
 });
