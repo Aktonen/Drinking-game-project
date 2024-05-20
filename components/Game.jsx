@@ -6,7 +6,6 @@ import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-na
 import { useNavigation } from '@react-navigation/native';
 import PlayersListGame from './PlayersListGame';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-// import Svg, { Path } from 'react-native-svg';
 
 import CARDS from '../assets/Cards';
 
@@ -16,11 +15,11 @@ export default function Game({ players }) {
   const [cardArray, setCardArray] = useState(CARDS);
   const [playerTurn, setPlayerTurn] = useState(0);
 
-  let fullHeight = Dimensions.get('window').height; //full height
+  let fullHeight = Dimensions.get('window').height; // Full height
 
   useEffect(() => {
     // Start animation when page loaded
-    startAnimation();
+    // startAnimation();
 
     // Fetch a random image on component mount
     const fetchRandomImage = () => {
@@ -34,15 +33,35 @@ export default function Game({ players }) {
   }, [cardArray]); // eslint-disable-line react-hooks/exhaustive-deps
 
 
-  const heightValue = useSharedValue(fullHeight);
+  // This is the animation for the beer container
+  // TODO - Run the animation when the page is first loaded. We have to not run the card animation when the page is first loaded
 
-  const startAnimation = () => {
-    heightValue.value = withTiming(0, { duration: 2000 }); // Animate to a height of 300
+  // const heightValue = useSharedValue(fullHeight);
+
+  // const startAnimation = () => {
+  //   heightValue.value = withTiming(0, { duration: 2000 }); // Animate to a height of 300
+  // };
+
+  // const animatedStyles = useAnimatedStyle(() => {
+  //   return {
+  //     height: heightValue.value,
+  //   };
+  // });
+
+  // This is the animation for the card
+  const xCoord = useSharedValue(1000);
+
+  const startCardAnimation = () => {
+    // Reset the position to initial value
+    xCoord.value = 1000;
+
+    // Start the animation to move the card to the final position
+    xCoord.value = withTiming(0, { duration: 1000 });
   };
 
-  const animatedStyles = useAnimatedStyle(() => {
+  const cardAnimatedStyles = useAnimatedStyle(() => {
     return {
-      height: heightValue.value,
+      transform: [{ translateX: xCoord.value }],
     };
   });
 
@@ -79,6 +98,8 @@ export default function Game({ players }) {
     setCardText(randomCardText);
     setCardArray(tempCardArray);
 
+    startCardAnimation();
+
     // Return the randomly selected image URI
     return randomCardText;
   }
@@ -102,46 +123,40 @@ export default function Game({ players }) {
 
   return (
     <>
-      <Animated.View style={[styles.beerContainer, animatedStyles]}>
-        {/* // This is the SVG that is not working */}
-        {/* <Svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320">
-          <Path fill="#ffffff" fillOpacity="1" d="M0,128L30,144C60,160,120,192,180,197.3C240,203,300,181,360,176C420,171,480,181,540,197.3C600,213,660,235,720,218.7C780,203,840,149,900,144C960,139,1020,181,1080,170.7C1140,160,1200,96,1260,96C1320,96,1380,160,1410,192L1440,224L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z" />
-        </Svg> */}
-      </Animated.View>
-      <PlayersListGame
-        players={players}
-        playerTurn={playerTurn}
-        color={players[playerTurn].color}
-      />
-      <View style={[styles.gameScreen, { backgroundColor: players[playerTurn].color }]}>
-        {cardText ? (
-          <TouchableOpacity onPress={() => {
-            getRandomCardText();
-            changeTurn();
-          }}>
-            <View style={styles.cardPressable}>
-              <Text style={[styles.cardTitle, getCardProperties(cardText.type).style]}>
-                {getCardProperties(cardText.type).title}
-              </Text>
-              <Text style={styles.gameText}>{cardText.text}</Text>
-            </View>
-          </TouchableOpacity>
-        ) : (
-          <Pressable
-            style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : 'blue' },
-            styles.startButton]}
-            onPress={() => {
-              navigation.goBack();
-            }}
-          >
-            {({ pressed }) => (
-              <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Restart game</Text> // eslint-disable-line react-native/no-inline-styles
-            )}
-          </Pressable>
-        )}
-      </View>
+      <View style={{ backgroundColor: players[playerTurn].color }}>
+        <PlayersListGame
+          players={players}
+          playerTurn={playerTurn}
+          color={players[playerTurn].color}
+        />
+        <Animated.View style={[styles.gameScreen, cardAnimatedStyles, { backgroundColor: players[playerTurn].color }]}>
+          {cardText ? (
+            <TouchableOpacity onPress={() => {
+              getRandomCardText();
+              changeTurn();
+            }}>
+              <View style={styles.cardPressable}>
+                <Text style={[styles.cardTitle, getCardProperties(cardText.type).style]}>
+                  {getCardProperties(cardText.type).title}
+                </Text>
+                <Text style={styles.gameText}>{cardText.text}</Text>
+              </View>
+            </TouchableOpacity>
+          ) : (
+            <Pressable
+              style={({ pressed }) => [{ backgroundColor: pressed ? 'green' : 'blue' },
+              styles.startButton]}
+              onPress={() => {
+                navigation.goBack();
+              }}
+            >
+              {({ pressed }) => (
+                <Text style={[{ color: pressed ? 'white' : 'black' }, styles.buttonText]}>Restart game</Text> // eslint-disable-line react-native/no-inline-styles
+              )}
+            </Pressable>
+          )}
+        </Animated.View>
+      </View >
     </>
   );
 }
