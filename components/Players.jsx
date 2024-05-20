@@ -19,7 +19,8 @@ const AddPlayer = ({ players, setPlayers }) => {
     }
   }, [players]); // eslint-disable-line react-hooks/exhaustive-deps
 
-
+  // TODO - The indexing and playerturn is not working as expected. Fix this.
+  // Two people can still have the same 'turn' in the game
   const addPlayer = async () => {
     if (playerName !== '') {
       try {
@@ -42,6 +43,8 @@ const AddPlayer = ({ players, setPlayers }) => {
     }
   };
 
+  // TODO - Make an animated view for the error and shake the input field
+  // Mayde like this, error ? <Animated.View> <TextInput> : <View> <TextInput>
   return (
     <>
       <TextInput

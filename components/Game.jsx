@@ -88,10 +88,10 @@ export default function Game({ players }) {
     // Get a random index within the array bounds
     const randomIndex = Math.floor(Math.random() * tempCardArray.length);
 
-    // Extract the image URI at the random index
+    // Extract the card text at the random index
     const randomCardText = tempCardArray[randomIndex];
 
-    // Remove the image from the array
+    // Remove the card from the array
     tempCardArray.splice(randomIndex, 1);
 
     // Update the cardText state
@@ -100,20 +100,20 @@ export default function Game({ players }) {
 
     startCardAnimation();
 
-    // Return the randomly selected image URI
+    // Return the randomly selected card text
     return randomCardText;
   }
 
   function getCardProperties(type) {
     switch (type) {
       case 'category':
-        return { title: 'Category', style: {} };
+        return { title: 'Category', style: styles.cardsCategory };
       case 'you-choose':
-        return { title: 'You-choose!', style: {} };
+        return { title: 'You-choose!', style: styles.cardsYouchoose };
       case 'urgent':
-        return { title: 'Urgent', style: { color: 'red', textTransform: 'uppercase' } };
+        return { title: 'Urgent!', style: styles.cardsUrgent };
       case 'waterfall':
-        return { title: 'Waterfall', style: {} };
+        return { title: 'Waterfall', style: styles.cardsWaterfall };
       default:
         return { title: '', style: {} };
     }

@@ -33,6 +33,8 @@ const PlayersList = ({ players, setPlayers }) => {
     );
   };
 
+  // TODO - The flatlist behaves weirdly when it's not full screen width. Fix this.
+  // Idea - make the flatlist full screen width and center the content
   return (
     <View style={styles.flatListWrapper}>
       <FlatList
