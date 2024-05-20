@@ -53,6 +53,7 @@ export default function Game({ players }) {
 
   const startCardAnimation = () => {
     // Reset the position to initial value
+    // TODO - Maybe full width instead of 1000
     xCoord.value = 1000;
 
     // Start the animation to move the card to the final position
@@ -98,6 +99,7 @@ export default function Game({ players }) {
     setCardText(randomCardText);
     setCardArray(tempCardArray);
 
+    // Start the card animation
     startCardAnimation();
 
     // Return the randomly selected card text
