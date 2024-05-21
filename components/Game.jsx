@@ -121,6 +121,27 @@ export default function Game({ players }) {
     }
   }
 
+  function getCardAssignment(type, assigned) {
+
+    const oneRoundNumber = players.length;
+
+    if (type === 'one-round') {
+      switch (assigned) {
+        case 'everyone':
+          return { counter: oneRoundNumber };
+        case 'player':
+        case 'tallest':
+        case 'shortest':
+          return { assignedPlayer: players[playerTurn].name, counter: oneRoundNumber };
+        default:
+          return { assignedPlayer: '', counter: '' };
+      }
+    } else {
+      return { assignedPlayer: '', counter: '' };
+    }
+  }
+
+
   const navigation = useNavigation();
 
   return (
@@ -131,6 +152,10 @@ export default function Game({ players }) {
           playerTurn={playerTurn}
           color={players[playerTurn].color}
         />
+        {/* <Text style={[styles.cardAssignedPlayer, { backgroundColor: 'red' }]}>
+          {getCardAssignment(cardText.type, cardText.assigned).assignedPlayer}
+          {getCardAssignment(cardText.type, cardText.assigned).counter}
+        </Text> */}
         <Animated.View style={[styles.gameScreen, cardAnimatedStyles, { backgroundColor: players[playerTurn].color }]}>
           {cardText ? (
             <TouchableOpacity onPress={() => {
