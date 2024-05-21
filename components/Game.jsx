@@ -16,6 +16,7 @@ export default function Game({ players }) {
   const [playerTurn, setPlayerTurn] = useState(0);
 
   let fullHeight = Dimensions.get('window').height; // Full height
+  let fullWidth = Dimensions.get('window').width; // Full height
 
   useEffect(() => {
     // Start animation when page loaded
@@ -49,12 +50,11 @@ export default function Game({ players }) {
   // });
 
   // This is the animation for the card
-  const xCoord = useSharedValue(1000);
+  const xCoord = useSharedValue(fullWidth);
 
   const startCardAnimation = () => {
     // Reset the position to initial value
-    // TODO - Maybe full width instead of 1000
-    xCoord.value = 1000;
+    xCoord.value = fullWidth;
 
     // Start the animation to move the card to the final position
     xCoord.value = withTiming(0, { duration: 1000 });
