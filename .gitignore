@@ -1,7 +1,11 @@
 node_modules/
+
 .expo/
+.expo-shared/
+
 dist/
 npm-debug.*
+
 *.jks
 *.p8
 *.p12
@@ -9,10 +13,15 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-ideat.txt
 
 # macOS
 .DS_Store
+
+# log files
+*.log
+
+# Environment variables
+.env
 
 todo
 %ProgramData%
